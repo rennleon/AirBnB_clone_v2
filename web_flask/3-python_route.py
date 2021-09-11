@@ -20,7 +20,7 @@ def hbnb():
 @app.route('/c/<txt>', strict_slashes=False)
 def c_text(txt):
     """Returns a text passed as param"""
-    return 'c {}'.format(txt.replace('_', ' '))
+    return 'C {}'.format(txt.replace('_', ' '))
 
 
 @app.route('/python/', strict_slashes=False)

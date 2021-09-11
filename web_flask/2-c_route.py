@@ -17,10 +17,10 @@ def hbnb():
     return 'HBNB'
 
 
-@app.route('/c/<txt>', strict_slashes=False)
-def text(txt):
+@app.route('/c/<text>', strict_slashes=False)
+def text(text):
     """Returns a text passed as param"""
-    return 'c {}'.format(txt.replace('_', ' '))
+    return 'c {}'.format(text.replace('_', ' '))
 
 
 if __name__ == '__main__':

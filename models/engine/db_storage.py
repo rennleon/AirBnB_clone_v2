@@ -35,14 +35,14 @@ class DBStorage:
     def all(self, cls=None):
         """ Queries a database for objects """
         if not cls:
-            res_list = self.__session.query(Amenity)
-            res_list.extend(self.__session.query(City))
-            res_list.extend(self.__session.query(Place))
-            res_list.extend(self.__session.query(Review))
-            res_list.extend(self.__session.query(State))
-            res_list.extend(self.__session.query(User))
+            res_list = self.__session.query(Amenity).all()
+            res_list.extend(self.__session.query(City).all())
+            res_list.extend(self.__session.query(Place).all())
+            res_list.extend(self.__session.query(Review).all())
+            res_list.extend(self.__session.query(State).all())
+            res_list.extend(self.__session.query(User).all())
         else:
-            res_list = res_list = self.__session.query(cls)
+            res_list = res_list = self.__session.query(cls).all()
         return {'{}.{}'.format(type(obj).__name__, obj.id): obj
                 for obj in res_list}
 
@@ -70,4 +70,4 @@ class DBStorage:
 
     def close(self):
         """close method"""
-        self.__session.remove()
+        self.__session.close()
